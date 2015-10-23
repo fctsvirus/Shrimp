@@ -3,7 +3,8 @@ exports.getMainPage = (page, model) ->
   user = model.at('users.' + userId)
   model.subscribe 'games', 'users', user, ->
     model.at('games').filter().ref '_page.games'
-    model.set 'users.' + userId + '.isProfessor', false
+    isProfessor = model.get 'users.' + userId + '.isProfessor'
+    model.set 'users.' + userId + '.isProfessor', isProfessor
     model.ref '_page.user', user
     page.render 'page:Home'
 

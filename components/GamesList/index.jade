@@ -3,7 +3,8 @@ index:
     .u-textDecoration
       | Games:
     each gamesList as #game
-      div
-        | {{#game.name}}
+      .GamesList-data
+        .GamesList-data-gameName
+          | {{#game.name}}
         if #game.canJoin
-          a.GamesList-a(on-click='join(#game, $event)') Join
+          a.GamesList-data-a.u-textAlign(on-click='join(#game, $event)') Join
